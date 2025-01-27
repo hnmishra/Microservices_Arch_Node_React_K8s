@@ -49,7 +49,7 @@ Services
 Infrastructure
 	Kubernetes:
 	Directry: k8s
-	Descriptin: Cntains Kubernetes deplyment and service cnfiguratin files fr each service.
+	Descriptin: Cntains Kubernetes deplyment and service cnfiguratin files fr each service. 
 	Key Files:
 	psts-depl.yaml: Deplyment and service fr the psts service.
 	cmments-depl.yaml: Deplyment and service fr the cmments service.
