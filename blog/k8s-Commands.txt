@@ -1,0 +1,38 @@
+imp :qovery is automation tool for the kubernetes
+see other kubernetes automations tools https://medium.com/@rphilogene/how-to-automate-kubernetes-deployments-in-2024-151fa1359303
+
+
+docker build -t hnmishra/posts:0.0.5 .  //docker build command
+docker run <image/tag name>
+docker push hnmishra/posts 
+docker rmi post/client
+
+
+kubectl apply -f posts-depl.yaml   // to create config file from the configuration in the yaml file.
+ kubectl get deployments
+ kubectl delete pod posts-deployment-5bbdc4b5b9-64d5l   //delete pod
+ kubectl describe deployment posts-deployment  // deployment is the name given in the config metadata   name: posts-deployment
+ kubectl delete deployment posts-deployment 
+
+kubectl get deployments
+
+//restart the deployment and update the latest image even without changing the config
+kubectl rollout restart deployment posts-deployment <deployment name>
+ and before run above command we need to :
+ 1. deployment must be with :latest tag in the pod sec section.
+ 2. make a update to the code
+ 3. build the image
+ 4. push the image in the docker hub with "docker push hnmishra/<imagename>" command
+ 6.Run the above rollout k8s commant or run the deployment command 
+    kubectl apply -f ?-depl.yaml 
+
+kubectl get pods
+kubectl logs <podname>
+
+#crete service
+kubectl apply -f posts-srv.yams
+kubectl get services
+kubectl describe service posts-srv 
+
+#command to install ingress-ngnix controller
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.0/deploy/static/provider/cloud/deploy.yaml
